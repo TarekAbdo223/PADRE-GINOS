@@ -5,7 +5,7 @@ const usePizzaOfTheDay = () => {
 
   useEffect(() => {
     async function fetchPizzaOfTheDay() {
-      const response = await fetchPizzaOfTheDay("/api/pizza-of-the-day");
+      const response = await fetch("/api/pizza-of-the-day");
       const data = await response.json();
       setPizzaOfTheDay(data);
     }
