@@ -24,6 +24,7 @@ const Cart = ({ cart, checkout }) => {
         ))}
       </ul>
       <p>Total: {intl.format(total)}</p>
+      <button onClick={checkout}>Checkout</button>
     </div>
   );
 };
