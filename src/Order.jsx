@@ -17,6 +17,7 @@ export default function Order() {
 
   async function checkout() {
     setLoading(true);
+    // cause we don't want people to add and substract things while we making the checkout
 
     await fetch("/api/order", {
       method: "POST",
@@ -31,6 +32,8 @@ export default function Order() {
   let price, selectedPizza;
   if (!loading) {
     selectedPizza = pizzaTypes.find((pizza) => pizzaType === pizza.id);
+    console.log(selectedPizza, "selectedPizza");
+
     price = intl.format(
       selectedPizza.sizes ? selectedPizza.sizes[pizzaSize] : ""
     );
@@ -39,7 +42,10 @@ export default function Order() {
   async function fetchPizzzaTypes() {
     const pizzaRes = await fetch("/api/pizzas");
     const pizzaJson = await pizzaRes.json();
+    console.log(pizzaJson);
+
     setPizzasTypes(pizzaJson);
+
     console.log(pizzaTypes);
 
     setLoading(false);

@@ -7,6 +7,8 @@ const usePizzaOfTheDay = () => {
     async function fetchPizzaOfTheDay() {
       const response = await fetch("/api/pizza-of-the-day");
       const data = await response.json();
+      console.log(data);
+
       setPizzaOfTheDay(data);
     }
 

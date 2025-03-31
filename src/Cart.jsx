@@ -8,6 +8,8 @@ const Cart = ({ cart, checkout }) => {
   let total = 0;
   for (let i = 0; i < cart.length; i++) {
     const current = cart[i];
+    console.log(current, "current");
+
     total += current.pizza.sizes[current.size];
   }
 
