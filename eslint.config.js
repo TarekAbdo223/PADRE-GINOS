@@ -3,9 +3,13 @@ import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import reactPlugin from "eslint-plugin-react";
+import pluginQuery from "@tanstack/eslint-plugin-query";
 
 export default [
   { ignores: ["dist"] },
+  reactPlugin.configs.flat["jsx-runtime"],
+  ...pluginQuery.configs["flat/recommended"],
+
   {
     files: ["**/*.{js,jsx}"],
     languageOptions: {
