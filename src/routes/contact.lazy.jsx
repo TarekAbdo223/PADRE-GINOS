@@ -19,7 +19,7 @@ function ContactRoute() {
     },
   });
   return (
-    <div>
+    <div className="contact">
       <h2>Contact</h2>
       {mutation.isSuccess ? (
         <h3>submitted</h3>
