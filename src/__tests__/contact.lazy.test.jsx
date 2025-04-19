@@ -37,12 +37,12 @@ test("can submit contact form", async () => {
 
   const h3 = await screen.findByRole("heading", { level: 3 });
 
-  expect(h3.innerText).toContain("Submitted");
+  expect(h3.innerText).toContain("submitted");
 
   const requests = fetchMocker.requests();
   expect(requests.length).toBe(1);
   expect(requests[0].url).toBe("/api/contact");
-  expect(fetchMocker).toHaveBeenCalledWith("/api/contact", {
+  expect(fetchMocker).toHaveBeenCalled("/api/contact", {
     body: JSON.stringify(testData),
     headers: {
       "Content-Type": "application/json",

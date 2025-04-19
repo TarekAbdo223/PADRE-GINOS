@@ -62,15 +62,14 @@ export default function Order() {
     fetchPizzzaTypes();
   }, []);
 
+  function addToCard() {
+    setCart([...cart, { pizza: selectedPizza, size: pizzaSize, price }]);
+  }
+
   return (
     <div className="order">
       <h2>Create Order</h2>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          setCart([...cart, { pizza: selectedPizza, size: pizzaSize, price }]);
-        }}
-      >
+      <form action={addToCard}>
         <div>
           <div>
             <label htmlFor="pizza-type">Pizza Type</label>
